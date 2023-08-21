@@ -1,5 +1,7 @@
 import ButtonForm from '../components/ButtonForm'
+import CampoTexto from '../components/CampoTexto'
 import '../css/estilos.css'
+import { datos } from '../data/archivos_iniciales'
 
 const NuevaCategoria = () =>{
 
@@ -34,14 +36,9 @@ const NuevaCategoria = () =>{
                     <h2 className="nuevovideo__titulo">Nueva Categoría</h2>
                     <form className='form' action="">
                         
-                        <div className="form__input ">
-                            <div className="form__input inputbackground">
-                                <label className='form__label' htmlFor="">Nombre</label>
-                                <input type="text" id='nombre' />
-                            </div>
-                            <span className="form__mensaje">Campo obligatorio</span>
-                        </div>
+                        <CampoTexto titulo='Nombre' error='' required/>
 
+                        <CampoTexto titulo='Descripción' error='' required/>
 
                         <div className="form__input ">
                             <div className="form__input inputbackground">
@@ -51,22 +48,9 @@ const NuevaCategoria = () =>{
                             <span className="form__mensaje">Campo obligatorio</span>
                         </div>
 
-                        <div className="form__input ">
-                            <div className="form__input inputbackground">
-                                <label className='form__label' htmlFor="">Color</label>
-                                <input type="color" id='nombre' />
-                            </div>
-                            <span className="form__mensaje">Campo obligatorio</span>
-                        </div>
+                        <CampoTexto titulo='Color' error='' required/>
 
-                        <div className="form__input ">
-                            <div className="form__input inputbackground">
-                                <label className='form__label' htmlFor="">Código de seguridad</label>
-                                <input type="text" />
-                            </div>
-                            <span className="form__mensaje">Campo obligatorio</span>
-                        </div>
-
+                        <CampoTexto titulo='Código de seguridad' error='' required/>
 
                         <div className="botones">
                             <ButtonForm titulo='Guardar' styles={EstilosBtnGuardar} />
@@ -74,8 +58,6 @@ const NuevaCategoria = () =>{
                         </div>
 
                     </form>
-
-                    
 
                     <table>
                         <thead>
@@ -87,24 +69,18 @@ const NuevaCategoria = () =>{
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Front End</td>
-                                <td>Formación Front End de Alura Latam</td>
-                                <td className="table__editar">Editar</td>
-                                <td  className="table__remover">Remover</td>
-                            </tr>
-                            <tr>
-                                <td>Back End</td>
-                                <td>Formación Back End de Alura Latam</td>
-                                <td className="table__editar">Editar</td>
-                                <td  className="table__remover">Remover</td>
-                            </tr>
-                            <tr>
-                                <td>Innovación y Gestión</td>
-                                <td>Formación Innovación y Gestión de Alura Latam</td>
-                                <td className="table__editar">Editar</td>
-                                <td  className="table__remover">Remover</td>
-                            </tr>
+                            {
+                                datos.categorias.map((categoria, i) => {
+                                    return (
+                                        <tr key={i}>
+                                            <td>{categoria.nombre}</td>
+                                            <td>{categoria.descripcion}</td>
+                                            <td className="table__editar">Editar</td>
+                                            <td className="table__remover">Remover</td>
+                                        </tr>
+                                    )
+                                })
+                            }
                         </tbody>
                     </table>
 

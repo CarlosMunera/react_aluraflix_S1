@@ -13,6 +13,10 @@ const GlobalStyle = createGlobalStyle`
         max-width: 1440p;
         margin: 0 auto;
     }
+
+    a, link {
+        text-decoration: none;
+    }
 `
 
 export default GlobalStyle
