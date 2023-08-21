@@ -104,8 +104,8 @@ const NuevoVideo = () =>{
 
                         <div className="barra__botones">
                             <div className="botones">
-                                <ButtonForm styles={EstilosBtnGuardar}>Guardar</ButtonForm>
-                                <ButtonForm styles={EstilosBtnLimpiar}>Limpiar</ButtonForm>
+                                <ButtonForm titulo='Guardar' styles={EstilosBtnGuardar} />
+                                <ButtonForm titulo='Limpiar' styles={EstilosBtnLimpiar} />
                             </div>
                             <ButtonLink to='/nuevacategoria' titulo='Nueva Categoría' styles={EstilosBtnNuevaCategoria}/>
                         </div>

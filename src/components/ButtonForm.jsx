@@ -1,5 +1,5 @@
-const ButtonForm = ({styles}) => {
-    return <input type="submit" style={styles}>
+const ButtonForm = ({titulo, styles}) => {
+    return <input type="submit" value ={titulo} style={styles}>
            
         </input>
 }

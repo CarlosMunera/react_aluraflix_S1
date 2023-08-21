@@ -8,8 +8,7 @@ const Footer = () =>{
             <div className=''>
                 <img src={LogoAluraFlix} alt="Logo AluraFlix" />
             </div>
-
-
+            
         </footer>
     )
 }
