@@ -1,9 +1,28 @@
+import { useState } from 'react'
 import ButtonForm from '../components/ButtonForm'
 import CampoTexto from '../components/CampoTexto'
 import '../css/estilos.css'
 import { datos } from '../data/archivos_iniciales'
+import TextArea from '../components/TextArea'
+import CampoColor from '../components/CampoColor'
 
 const NuevaCategoria = () =>{
+
+    const [nombre, setNombre] = useState('')
+    const [descripcion, setDescripcion] = useState('')
+    const [color, setColor] = useState('')
+    const [codigo, setCodigo] = useState('')
+ 
+
+    const manejarEnvio = (e) => {
+        e.preventDefault()
+        const datosAEnviar = {
+            nombre,
+            descripcion,
+            color
+        }
+        console.log(datosAEnviar)
+    }
 
     const EstilosBtnGuardar = {
         display: 'inline-block',
@@ -34,23 +53,39 @@ const NuevaCategoria = () =>{
             <main className="nuevovideo">
                 <div className="container">
                     <h2 className="nuevovideo__titulo">Nueva Categoría</h2>
-                    <form className='form' action="">
+                    <form className='form' action="" onSubmit={manejarEnvio}>
                         
-                        <CampoTexto titulo='Nombre' error='' required/>
+                        <CampoTexto 
+                            titulo='Nombre' 
+                            error='' 
+                            required 
+                            valor={nombre}
+                            actualizarValor={setNombre}    
+                        />
 
-                        <CampoTexto titulo='Descripción' error='' required/>
+                        <TextArea 
+                            titulo='Descripción' 
+                            error='' 
+                            required
+                            valor={descripcion}
+                            actualizarValor={setDescripcion} 
+                        />
 
-                        <div className="form__input ">
-                            <div className="form__input inputbackground">
-                                <label className='form__label' htmlFor="" >Descripción</label>
-                                <textarea name="" id="" cols="30" rows="4"></textarea>
-                            </div>
-                            <span className="form__mensaje">Campo obligatorio</span>
-                        </div>
+                        <CampoColor 
+                            titulo='Color' 
+                            error='' 
+                            required
+                            valor={color}
+                            actualizarValor={setColor}
+                        />
 
-                        <CampoTexto titulo='Color' error='' required/>
-
-                        <CampoTexto titulo='Código de seguridad' error='' required/>
+                        <CampoTexto 
+                            titulo='Código de seguridad' 
+                            error='' 
+                            required
+                            valor={codigo}
+                            actualizarValor={setCodigo}
+                        />
 
                         <div className="botones">
                             <ButtonForm titulo='Guardar' styles={EstilosBtnGuardar} />

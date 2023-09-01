@@ -5,6 +5,12 @@ AluraFlix plataforma de videos, proyecto realizado para el curso de Desarrollo W
 Este proyecto ha sido realizado con [Create React App](https://github.com/facebook/create-react-app) 
 ![Alt text](src/VistaPrevia.PNG)
 
+
+## `Actualización final del proyecto: El Sprint 2 de esta aplicación se encuentra en el siguiente link:`
+* [Aluraflix Sprint 2](https://github.com/CarlosMunera/react_aluraflix_S2) 
+
+
+
 ## `Creando componentes`
 Componentes creados para este Sprint:
 * Button 

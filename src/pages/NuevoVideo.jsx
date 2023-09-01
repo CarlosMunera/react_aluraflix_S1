@@ -1,13 +1,32 @@
+import { useState } from "react"
 import ButtonLink from "../components/ButtonLink"
 import ButtonForm from "../components/ButtonForm"
 import CampoTexto from "../components/CampoTexto"
 import ListaOpciones from "../components/ListaOpciones"
+import TextArea from "../components/TextArea"
 
 const NuevoVideo = () =>{
 
+    const[titulo,setTitulo] = useState('')
+    const[linkVideo,setVideo] = useState('')
+    const[linkImagen,setImagen] = useState('')
+    const[categoria,setCategoria] = useState('')
+    const[descripcion,setDescripcion] = useState('')
+    const[codigoSeguridad,setCodigoSeguridad] = useState('')
+    
+
     const manejarEnvio = (e) =>{
         e.preventDefault()
-        console.log('Manejar el envio',e)
+        console.log('Manejar el envio')
+        let datosAEnviar = {
+            titulo,
+            linkVideo,
+            linkImagen,
+            categoria,
+            descripcion,
+            codigoSeguridad
+        }
+        console.log(datosAEnviar)
     }
 
     const EstilosBtnNuevaCategoria = {
@@ -56,27 +75,52 @@ const NuevoVideo = () =>{
                     
                     <form className='form' action="" onSubmit={manejarEnvio}>
                         
-                        <CampoTexto titulo='Título' mensaje="" required/>
+                        <CampoTexto 
+                            titulo='Título'
+                            mensaje="" 
+                            required={true} 
+                            valor={titulo} 
+                            actualizarValor={setTitulo} 
+                        />
                         
-                        <CampoTexto titulo='Link del video' mensaje="" required/>
+                        <CampoTexto 
+                            titulo='Link del video' 
+                            mensaje="" 
+                            required={true} 
+                            valor={linkVideo} 
+                            actualizarValor={setVideo} 
+                        />
 
-                        <CampoTexto titulo='Link de la imagen del video' mensaje="" required/>
-                        
-                        <CampoTexto titulo='Link de la imagen del video' mensaje="" required/>
+                        <CampoTexto 
+                            titulo='Link de la imagen del video' 
+                            mensaje="" 
+                            required={true} 
+                            valor={linkImagen} 
+                            actualizarValor={setImagen} 
+                        />
 
-                        <ListaOpciones titulo='Categoría' mensaje="" required/>
+                        <ListaOpciones 
+                            titulo='Categoría' 
+                            mensaje="" 
+                            required={true} 
+                            valor={categoria} 
+                            actualizarValor={setCategoria} 
+                        />
 
-                        
+                        <TextArea 
+                            titulo='Descripción de la categoría' 
+                            mensaje='' 
+                            required={true} 
+                            valor={descripcion} 
+                            actualizarValor={setDescripcion} 
+                        />
 
-                        <div className="form__input ">
-                            <div className="form__input inputbackground">
-                                <label className='form__label' htmlFor="descripcion" >Descripción</label>
-                                <textarea name="descripcion" id="descripcion" cols="30" rows="4"></textarea>
-                            </div>
-                            <span className="form__mensaje">Campo obligatorio</span>
-                        </div>
-
-                        <CampoTexto titulo='Código de seguridad' mensaje="" required/>
+                        <CampoTexto 
+                            titulo='Código de seguridad' 
+                            mensaje="" 
+                            required valor={codigoSeguridad}
+                            actualizarValor={ setCodigoSeguridad } 
+                        />
 
                         <div className="barra__botones">
                             <div className="botones">
